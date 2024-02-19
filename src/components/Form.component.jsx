@@ -2,8 +2,8 @@ import React from "react";
 
 const FormComponent = ({ type, name, label, placeholder = "", ...rest }) => {
   return (
-    <div className="flex flex-col">
-      <label htmlFor={name} className=" text-center mb-3 mt-5">
+    <div className="flex flex-col ">
+      <label htmlFor={name} className=" text-center mb-3 mt-3">
         {label}
       </label>
       <input

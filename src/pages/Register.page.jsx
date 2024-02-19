@@ -5,6 +5,7 @@ import {
   FormComponent,
   LoadingComponent,
   ErrorComponent,
+  PreventComponent,
 } from "../components";
 import { useNavigate } from "react-router-dom";
 import { Register } from "../service/Auth.service";
@@ -20,13 +21,13 @@ const RegisterPage = () => {
   });
   const { handleApiData, loading, error, data } = useApi(Register);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e) => {  
     setFormData((pre) => ({ ...pre, [e.target.name]: e.target.value }));
     // console.log(e.target.name, e.target.value);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await Register(formData);
+    // const res = await Register(formData);
     // console.log(res);
     handleApiData(formData);
   };
@@ -39,7 +40,8 @@ const RegisterPage = () => {
 
   // console.log(loading, data, error);
   return (
-    <ContainerComponent>
+    <PreventComponent fail={"/home"} check={localStorage.getItem("auth")} >
+      <ContainerComponent>
       {loading ? (
         <LoadingComponent />
       ) : (
@@ -103,6 +105,7 @@ const RegisterPage = () => {
         </div>
       )}
     </ContainerComponent>
+    </PreventComponent>
   );
 };
 
