@@ -6,8 +6,10 @@ import { getProfile } from "../service/Auth.service";
 const HomePage = () => {
   const nav = useNavigate();
   const handleLogOut = () => {
+    console.log("logging out....");
     localStorage.removeItem("auth");
     nav("/");
+    console.log("logged out");
   };
   useEffect(() => {
     (async () => {

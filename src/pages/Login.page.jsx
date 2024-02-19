@@ -41,7 +41,7 @@ const LoginPage = () => {
           <div className="flex justify-center items-center h-full">
             <div className="w-1/4  h-auto">
               <h1 className=" font-serif text-3xl font-bold text-center ">
-                Login Your Content
+                Login Your Account
               </h1>
               {error && <ErrorComponent>{error}</ErrorComponent>}
               <form onSubmit={handleSubmit}>
